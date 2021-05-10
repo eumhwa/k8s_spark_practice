@@ -1,5 +1,5 @@
-# k8s에 스파크 클러스터 세팅하기 (m1 mac version)
----------------------------
+## k8s에 스파크 클러스터 세팅하기 (m1 mac)
+------------------------------------
 
 1. Minikube & kubectl 설치
     - Homebrew로 설치
@@ -26,7 +26,6 @@
     - Java ENV 등록(./~zchrc)
         ```
         $ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
-        
         $ export PATH=$PATH:$JAVA_HOME/bin
         ```
 3. Spark 설치
