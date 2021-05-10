@@ -59,6 +59,5 @@
         ## spark image
         $ docker-image-tool.sh build
         ```
-    - -m: minikube docker daemon에 이미지 받기
+    - -m: minikube docker daemon 이용하여 이미지 받기
     - -p: python job 전용 dockerfile 지정  
-    
