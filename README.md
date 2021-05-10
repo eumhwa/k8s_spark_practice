@@ -28,10 +28,10 @@
         $ export PATH=$PATH:$JAVA_HOME/bin
         ```
     - Test
-        '''
+        ```
         $ java -version
         $ javac -version
-        '''
+        ```
 
 3. Spark 설치
     - Homebrew로 설치
