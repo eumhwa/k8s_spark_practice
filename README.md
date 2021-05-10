@@ -48,3 +48,15 @@
         $ pyspark --version
         $ spark-submit examples/src/main/python/wordcount.py /Users/eumhwa/Desktop/project/k8s_spark_practice/README.md
         ```
+    
+4. Spark docker image build
+    - pod 생성을 위한 base docker image pull받기
+    - docker-image-tool.sh 이용
+        ```
+        ## spark-py image
+        $ docker-image-tool.sh -p kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
+        
+        ## spark image
+        $ docker-image-tool.sh build
+        ```
+    
