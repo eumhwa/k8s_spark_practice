@@ -54,9 +54,11 @@
     - docker-image-tool.sh 이용
         ```
         ## spark-py image
-        $ docker-image-tool.sh -p kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
+        $ docker-image-tool.sh -m -p kubernetes/dockerfiles/spark/bindings/python/Dockerfile build
         
         ## spark image
         $ docker-image-tool.sh build
         ```
+    - -m: minikube docker daemon에 이미지 받기
+    - -p: python job 전용 dockerfile 지정  
     
