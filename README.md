@@ -31,9 +31,9 @@
 3. Spark 설치
     - Homebrew로 설치
         ```
-        $ brew insatll apache-spark
+        $ brew install apache-spark
         ```
-    - Spark ENV 등록
+    - Spark ENV 등록(설치경로에서 버전확인 -> 3.1.1)
         ```    
         $ export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.1.1/libexec
         $ export PATH=$PATH:$SPARK_HOME
