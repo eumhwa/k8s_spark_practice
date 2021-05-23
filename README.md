@@ -46,6 +46,8 @@
     - Test
         ```
         $ pyspark --version
+
+        ## wordcount 예제
         $ spark-submit examples/src/main/python/wordcount.py /Users/eumhwa/Desktop/project/k8s_spark_practice/README.md
         ```
     
@@ -61,3 +63,10 @@
         ```
     - -m: minikube docker daemon 이용하여 이미지 받기
     - -p: python job 전용 dockerfile 지정  
+
+
+------------------------------------
+# TODO List
+1. spark-submit으로 minikube에 spark job 날려보기
+2. k8s 스터디
+3. yml파일로 spark 서비스 개발/운영해보기
