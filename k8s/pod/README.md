@@ -16,7 +16,7 @@
         ```
     - Container build by buildx (multi-architecture support)
         ```
-        ## setting builer
+        ## setting builder
         $ docker buildx create --name mybuilder
         $ docker buildx use mybuilder
         $ docker buildx ls #checking builder
@@ -30,4 +30,15 @@
     ```
     $ k create -f stock_crawl.yml
     $ k delete -f stock_crawl.yml
+    ```
+- pod information & checking logs
+    ```
+    $ k get pods # all pods
+    $ k get pod stock-crawling -o yaml # detailed pod information with yaml format
+    $ k describe stock-crawling # events, scheduler
+    $ k logs -f stock-crawling --tail 100 # last 100 logs
+    ```
+- port forwarding
+    ```
+    $ k port-forward stock-crawling 8001:8002
     ```

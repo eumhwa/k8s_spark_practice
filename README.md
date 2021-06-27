@@ -1,6 +1,5 @@
-## k8s에 스파크 클러스터 세팅하기 (m1 mac)
-------------------------------------
-
+# k8s에 스파크 클러스터 세팅하기 (m1 mac)
+## Environments setting
 1. Minikube & kubectl 설치
     - Homebrew로 설치
         ```
@@ -65,8 +64,7 @@
     - -p: python job 전용 dockerfile 지정  
 
 
-------------------------------------
-# TODO List
+## TODO List
 1. spark-submit으로 minikube에 spark job 날려보기
 2. k8s 스터디
 3. yml파일로 spark 서비스 개발/운영해보기
