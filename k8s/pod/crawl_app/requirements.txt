@@ -1,5 +1,7 @@
 uvicorn
-kafka-python
 requests
 fastapi
-
+pydantic
+beautifulsoup4
+numpy
+kubernetes
