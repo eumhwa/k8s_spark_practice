@@ -42,3 +42,7 @@
     ```
     $ k port-forward stock-crawling 8001:8002
     ```
+- label & annotation
+    ```
+    $ k annotate pod stock-crawling key:value # key/value format
+    ```
