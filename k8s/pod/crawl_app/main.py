@@ -6,7 +6,6 @@ from fastapi import FastAPI, Response, status
 
 from crawl import *
 
-CODE_JSON_PATH = "./stock_code.json"
 NEWS_MAIN_URL = "https://finance.naver.com/news/mainnews.nhn" #naver stock main news url
 NEWS_URL = "https://finance.naver.com/item/news.nhn"
 
