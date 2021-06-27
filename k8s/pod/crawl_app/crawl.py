@@ -5,6 +5,7 @@ import requests
 from urllib import request, parse
 from bs4 import BeautifulSoup
 
+NEWS_BASE_URL = "https://finance.naver.com"
 CODE_JSON_PATH = "./stock_code.json"
 
 def get_code(stock_name:str):
@@ -20,7 +21,7 @@ def get_code(stock_name:str):
         return
     
 
-def test_crawl(url:str):
+def crawl_by_date(url:str):
     soup = BeautifulSoup(request.urlopen(url).read(), 'html.parser')
     res = soup.find_all("dd", "articleSubject")
 
@@ -33,16 +34,25 @@ def test_crawl(url:str):
 
 
 def get_news_title(url:str, stock_name:str):
-    stock_code = get_code(stock_name)
-    param = {"code":stock_code}
-
-    req = requests.get(url, params=param)
-    soup = BeautifulSoup(req.text, "html.parser")
-    res = soup.find_all("div", "content")
-    print(res)
     
-        
-    return 
+    code_param = {"code" : get_code(stock_name)}
+    res = requests.get(url, params=code_param)
+    
+    soup = BeautifulSoup(res.text, "html.parser")
+    iframe = soup.find("iframe", id="news_frame")
+    
+    res_iframe = request.urlopen(f"{NEWS_BASE_URL}{iframe.attrs['src']}")
+    iframe_soup = BeautifulSoup(res_iframe)
+    
+    title_tags = iframe_soup.find_all("td", class_="title")
+    title_lst = []
+    for tag in title_tags:
+        txt = tag.text.replace('\n', '').replace(' ', '')
+        title_lst.append(txt)
+
+    print(title_lst)
+    
+    return title_lst
 
     
     

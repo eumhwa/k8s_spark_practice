@@ -7,7 +7,9 @@ from fastapi import FastAPI, Response, status
 from crawl import *
 
 CODE_JSON_PATH = "./stock_code.json"
-	
+NEWS_MAIN_URL = "https://finance.naver.com/news/mainnews.nhn" #naver stock main news url
+NEWS_URL = "https://finance.naver.com/item/news.nhn"
+
 app = FastAPI()
 
 '''
@@ -26,16 +28,6 @@ app = FastAPI()
  - consumer가 job을 받아서 동작한다
 '''
 
-@app.get("/test_api")
-def crawl_naver_news(YY:str, MM:str, DD:str):
-	date_param = f"{YY}-{MM}-{DD}"
-	base_url = "https://finance.naver.com/news/mainnews.nhn" #naver stock main news url
-    
-	req_url = f"{base_url}?{date_param}"
-	main_titles = test_crawl(req_url)
-	
-	return main_titles
-
 @app.post("/update_code")
 def update_stock_code(stock_name:str, stock_code:str):
 	
@@ -49,12 +41,13 @@ def update_stock_code(stock_name:str, stock_code:str):
 
 	return Response(status_code=status.HTTP_204_NO_CONTENT)
 
+@app.get("/titles_by_date")
+def crawl_naver_news(yyyy:str, mm:str, dd:str):
+	date_param = f"{yyyy}-{mm}-{dd}"
+	
+	req_url = f"{NEWS_MAIN_URL}?{date_param}"
+	return crawl_by_date(req_url)
 
 @app.get("/news_titles")
 def crawl_naver_news(stock_name:str):
-	
-	base_url = "https://finance.naver.com/item/news.nhn"
-    
-	main_titles = get_news_title(base_url, stock_name)
-	
-	return main_titles
+	return get_news_title(NEWS_URL, stock_name)
