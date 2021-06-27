@@ -1,22 +1,31 @@
 # k8s pod 정리
-## Crawling 관련 컨테이너 서비스 사용
+## Setting: minikube + Crawling 관련 컨테이너
 
-1. Minikube 실행 & container build/run
+1. Minikube 실행 & Container build/run
 
     - Minikube 실행
         ```
         $ minikube --memory 2048 --cpus 2 start
         ```
-    - Container build
+    - Container build/run
         ```
-        $ docker build -t crawl_app:latest .
-        $ docker run -itd -p 8002:8002 --name crawl crawl_app:latest
+        # 1번 명령어를 통해 minikube 위에 docker image를 빌드할 수 있다.
+        $ eval $(minikube -p minikube docker-env) # to use local images
+        $ docker build -t crawl_app:dev .
+        $ docker run -itd -p 8002:8002 --name crawl crawl_app:dev
         ```
     - Container build by buildx (multi-architecture support)
         ```
         $ docker buildx create --name mybuilder
         $ docker buildx use mybuilder
-        $ docker buildx ls
-        $ docker buildx build --platform darwin/arm64,darwin/amd64 -t crawl_app:latest --load .
-        $ docker run -itd -p 8002:8002 --name crawl crawl_app:latest
+        $ docker buildx ls #checking builder
+        $ docker buildx build --platform darwin/arm64,darwin/amd64 -t crawl_app:dev --load .
+        $ docker run -itd -p 8002:8002 --name crawl crawl_app:dev
         ```
+
+## kubectl pod 관련 명령어
+- pod create/delete
+    ```
+    $ k create -f crawl.yml
+    $ k delete -f crawl.yml
+    ```
