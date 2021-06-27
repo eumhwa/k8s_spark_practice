@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stock-crawling
+spec:
+  containers:
+  - name: crawl
+    image: crawl_app:dev
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 8002
