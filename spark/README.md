@@ -65,7 +65,7 @@
         $ cd /opt/homebrew/Cellar/apache-spark/3.1.1/libexec/sbin
         
         $ sh start-maseter.sh 
-        $ sh start-workers.sh
+        $ sh start-workers.sh # [시스템환경설정]-[공유]-[원격로그인] 허용해야함!
         # 127.0.0.1:7777 에서 web-ui확인
         
         $ sh stop-all.sh
