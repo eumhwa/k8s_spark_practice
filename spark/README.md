@@ -24,10 +24,50 @@
         ```
 
 2. pyspark 설정
-    - pyspark command 입력시 jupyterlab 구동
+    - pyspark command 입력시 jupyterlab이 구동
         ```
         $ vi ~/.zshrc
-        $ export PYSPARK_DRIVER_PYTHON=jupyter
-        $ export PYSPARK_DRIVER_PYTHON_OPTS="lab --port=8889" pyspark
+        > export PYSPARK_DRIVER_PYTHON=jupyter
+        > export PYSPARK_DRIVER_PYTHON_OPTS="lab --port=8889" pyspark
+        ```
+    - spark-env.sh 설정
+        ```
+        $ vi /opt/homebrew/Cellar/apache-spark/3.1.1/libexec/conf/spark-env.sh
+
+        # 하기 env 입력 후 저장
+        > export SPARK_MASTER_IP='127.0.0.1'
+        > export SPARK_MASTER_HOST=spark-master
+        > export SPARK_MASTER_WEBUI_PORT=7777
+        > export SPARK_WORKER_INSTANCES=2
+        > export SPARK_EXECUTOR_CORES=1
+        > export SPARK_EXECUTER_MEMORY=1g
+        ```
+    - spark-default.conf 설정
+        ```
+        $ vi /opt/homebrew/Cellar/apache-spark/3.1.1/libexec/conf/spark-default.conf
+
+        # 하기 env 입력 후 저장
+        > spark.master  spark://spark-master:7077
+        > spark.serializer  org.apache.spark.serializer.KryoSerializer
+        ```
+    - /etc/hosts 수정
+        ```
+        $ sudo vi /etc/hosts
+
+        # 하기 설정 추가 후 저장
+        > 127.0.0.1 spark-master
+        > 127.0.0.1 127.0.0.1 gim-eumhwaui-MacBookAir.local
+        ```
+
+3. spark test
+    - start master/worker node
+        ```
+        $ cd /opt/homebrew/Cellar/apache-spark/3.1.1/libexec/sbin
+        
+        $ sh start-maseter.sh 
+        $ sh start-workers.sh
+        # 127.0.0.1:7777 에서 web-ui확인
+        
+        $ sh stop-all.sh
         ```
     
