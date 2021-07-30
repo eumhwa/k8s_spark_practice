@@ -56,7 +56,7 @@
 
         # 하기 설정 추가 후 저장
         > 127.0.0.1 spark-master
-        > 127.0.0.1 127.0.0.1 gim-eumhwaui-MacBookAir.local
+        > 127.0.0.1 gim-eumhwaui-MacBookAir.local
         ```
 
 3. spark test
