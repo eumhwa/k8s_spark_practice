@@ -19,8 +19,8 @@
         $ vi /Users/eumhwa/.jupyter/jupyter_lab_config.py
 
         ## app-dir /notebook-dir 설정값 변경
-        $ c.LabApp.app_dir = '/opt/homebrew/lib/python3.9/site-packages/jupyterlab'
-        $ c.ServerApp.notebook_dir = '/Users/eumhwa/Desktop/'
+        > c.LabApp.app_dir = '/opt/homebrew/lib/python3.8/site-packages/jupyterlab'
+        > c.ServerApp.notebook_dir = '/Users/eumhwa/Desktop/'
         ```
 
 2. pyspark 설정
