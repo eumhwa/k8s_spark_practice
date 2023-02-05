@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crawl-service
+  labels:
+    #app: cw-app
+    run: cw-svc
+spec:
+  selector:
+    app: cw-app
+  type: NodePort
+  ports:
+  - nodePort: 31000   # port for external service (by default: 30000-32767)
+    port: 80          # svc port 
+    targetPort: 8002  # container port in deplyments
+    name: http
+    protocol: TCP

@@ -12,7 +12,7 @@ NEWS_URL = "https://finance.naver.com/item/news.nhn"
 app = FastAPI()
 
 
-@app.put("/update_code")
+@app.put("/code")
 def update_stock_code(stock_name:str, stock_code:str):
 	
 	with open(CODE_JSON_PATH, encoding="UTF-8") as f:

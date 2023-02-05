@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crawl-deployment
+  labels:
+    app: cw-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cw-app
+  template:
+    metadata:
+      labels:
+        app: cw-app
+    spec:
+      containers:
+      - name: crawl
+        image: crawl_app:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8002

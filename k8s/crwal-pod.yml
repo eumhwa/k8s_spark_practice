@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: stock-crawling
+  labels:
+    app: my-app
 spec:
   containers:
   - name: crawl
