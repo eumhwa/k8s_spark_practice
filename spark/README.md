@@ -63,7 +63,7 @@
         ```console
         $ sudo vi /etc/hosts
         ```
-        # 하기 설정 추가 후 저장
+        - 하기 설정 추가 후 저장
         ```sh
         127.0.0.1 spark-master
         127.0.0.1 gim-eumhwaui-MacBookAir.local
