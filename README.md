@@ -68,7 +68,7 @@
         ```
 
 5. Minikube에서 spark job 실행
-    - 테스트를 위한 namespace, serviceaccount, role/rolebinind 생성
+    - 테스트를 위한 namespace, serviceaccount, role/rolebinding 생성
         ```console
         $ k apply -f ns.yaml
         $ k apply -f sa.yaml

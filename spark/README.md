@@ -32,8 +32,8 @@
         $ vi ~/.zshrc
         ```
         ```sh
-        > export PYSPARK_DRIVER_PYTHON=jupyter
-        > export PYSPARK_DRIVER_PYTHON_OPTS="lab --port=8889" pyspark
+        export PYSPARK_DRIVER_PYTHON=jupyter
+        export PYSPARK_DRIVER_PYTHON_OPTS="lab --port=8889" pyspark
         ```
     - spark-env.sh 설정
         ```console
