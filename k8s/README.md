@@ -1,4 +1,4 @@
-# k8s pod 정리
+# k8s 에 new crawling application 배포
 ## Setting: minikube + Container(stock news crawling pod)
 
 1. Minikube 실행 & Docker image 빌드
@@ -53,7 +53,7 @@
     ![ex_screenshot](./screenshot/svc.png)
 
 3. Crawling API swagger 접속
-    - minikube service 실행
+    - minikube service 실행 및 app log 확인
     ```console
     $ minikube service crawl-service
     $ k logs -l app=cw-app
